@@ -1,15 +1,14 @@
 import numpy as np
 import random
+from common.character import Character
 
-def calc_actual_stats(base_stat, ev, level):
+def calc_actual_stats(character: Character):
     """
-    calculate actual stats based on base stats
-    :param base_stat: quadruple (HP, atk, def, spe) with the base stats
-    :param ev: quadruple with the effort value, max total is 400
-    :param level: level of hero
-    :return: quadruple with the actual stats
+    calculate actual stats, given a character
+    :param character: a character instance
     """
-    return np.round((2*np.array(base_stat)+np.array(ev)/4)*level/60 + np.array([5, 5, 5, 5])).astype(int)
+    return np.round((2*np.array(character.base_stats)+np.array(character.ev)/4)*character.level/60
+                    + np.array([5, 5, 5, 5])).astype(int)
 
 def calc_dmg(level, power, attack, defense, type_mod, crit_mod):
     """
