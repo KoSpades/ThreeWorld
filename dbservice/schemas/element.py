@@ -6,5 +6,4 @@ class Element(Base):
 
     e_id = Column(Integer, primary_key=True, index=True)
     e_name = Column(String)
-
     
