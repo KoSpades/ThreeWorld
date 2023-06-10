@@ -1,6 +1,9 @@
 from utils import util
 from common.character import *
 
+# We need to move all the numbers into a database!!!
+# Starting from element
+
 lucy_brand = Brand(5)
 lucy_enel = Enel(60)
 npc_fred = Fred(60)
