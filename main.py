@@ -1,16 +1,11 @@
-# This is a sample Python script.
+from utils import util
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+fire_starter_base = [70, 65, 75, 45]
+fred_base = [120, 190, 170, 180]
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+fire_starter_stats = util.calc_actual_stats(fire_starter_base, [0, 0, 0, 0], 5)
+fred_stats = util.calc_actual_stats(fred_base, [100, 100, 100, 100], 50)
+util.print_status(fire_starter_stats, "fire starter")
+util.print_status(fred_stats, "Fred")
+print(f"Your dmg is {util.calc_dmg(5, 40, fire_starter_stats[1], fred_stats[2], 1, 1)}")
+print(f"Fred dmg is {util.calc_dmg(50, 120, fred_stats[1], fire_starter_stats[1], 1, 1)}")
