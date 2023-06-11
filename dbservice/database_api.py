@@ -2,7 +2,7 @@ from .database import engine, Base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import event
 
-from .crud import (element_repo, element_relation_repo, ability_repo)
+from .crud import (element_repo, element_relation_repo, ability_repo, character_repo,)
 from contextlib import contextmanager
 
 # global engine
@@ -47,3 +47,13 @@ def create_ability(a_id, a_name, power, element, target_type, starting_pp, consu
 def remove_all_abilities():
     with get_db() as session:
         ability_repo.remove_all_abilities(session)
+
+def create_character(char_id, char_name, element, position, hp, attack, defense, speed):
+    with get_db() as session:
+        res = character_repo.create_character(session, char_id, char_name, element, position,
+                                              hp, attack, defense, speed,)
+        return res
+
+def remove_all_characters():
+    with get_db() as session:
+        character_repo.remove_all_characters(session)
