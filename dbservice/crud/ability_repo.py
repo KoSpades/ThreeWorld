@@ -3,9 +3,10 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from ..schemas.ability import Ability
 
-def create_ability(db: Session, a_id, a_name, power, element, target_type, starting_pp, consuming_pp):
+def create_ability(db: Session, a_id, a_name, char_id, power, element, target_type, starting_pp, consuming_pp):
     db_ability = Ability(a_id=a_id,
                          a_name=a_name,
+                         char_id=char_id,
                          power=power,
                          element=element,
                          target_type=target_type,

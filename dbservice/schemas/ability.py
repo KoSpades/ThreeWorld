@@ -6,6 +6,7 @@ class Ability(Base):
 
     a_id = Column(Integer, primary_key=True, index=True)
     a_name = Column(String)
+    char_id = Column(Integer, ForeignKey('characters.char_id', ondelete='CASCADE'))
     power = Column(Integer)
     element = Column(Integer, ForeignKey('elements.e_id', ondelete='CASCADE'))
     target_type = Column(String)
